@@ -10,16 +10,14 @@
       <thead>
         <th>Position</th>
         <th>Name</th>
-        <th>Number</th>
         <th>Points</th>
         <th>Wins</th>
         <th>Team</th>
       </thead>
       <tbody>
-        <tr v-for="driver in driversData" :key="driver.position" v-if='driver.Driver.permanentNumber'>
+        <tr v-for="driver in driversData" :key="driver.position">
           <td>{{driver.position}}</td>
           <td>{{driver.Driver.familyName}}</td>
-          <td>{{driver.Driver.permanentNumber}}</td>
           <td>{{driver.points}}</td>
           <td>{{driver.wins}}</td>
           <td>{{driver.Constructors[0].name}}</td>
