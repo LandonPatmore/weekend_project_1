@@ -2,7 +2,7 @@
   <div id="app">
     <h1>F1 Standings</h1>
     <h4>Select a year</h4>
-    <select v-model='selectedYear' disabled>
+    <select v-model='selectedYear'>
       <option v-for='year in setOfYears' :key='year' :value='year'>{{year}} </option>
     </select>
     <input type="text" placeholder="Driver Information" v-model="driverSearch">
@@ -81,11 +81,11 @@ export default {
     },
 
     grabDriverStandings: function(year) {
-      return axios.get('../static/driverData.json')
+      return axios.get('http://ergast.com/api/f1/' + year + '/driverStandings.json')
     },
 
     grabConstructorStandings: function(year) {
-      return axios.get(`../static/teamData.json`)
+      return axios.get('http://ergast.com/api/f1/' + year + '/constructorStandings.json')
     },
 
     grabAllData: function(year) {
@@ -149,7 +149,7 @@ $transparency: rgba(255,
     border-collapse: collapse;
     table-layout: fixed;
     text-transform: uppercase;
-    width: 45%;
+    width: auto;
     margin: auto;
 
     thead {
